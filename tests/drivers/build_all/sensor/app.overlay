@@ -124,6 +124,8 @@
 			status = "okay";
 
 			#include "uart.dtsi"
+			/* include w1 devices using zeyphyr,w1-serial driver */
+			#include "w1.dtsi"
 		};
 
 		dht22 {

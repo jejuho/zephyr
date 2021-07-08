@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2021, Thomas Stranger
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Application overlay for w1 devices
+ */
+
+test_w1: w1-zephyr-serial-0 {
+	compatible = "zephyr,w1-serial";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	label = "TEST_W1";
+	status = "okay";
+
+	test-w1-ds18b20@28 {
+		compatible = "maxim,ds18b20";
+		reg = <0x28>;
+		resolution = <12>;
+		label = "DS18B20";
+		status = "okay";
+	};
+};
