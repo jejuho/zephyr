@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2021 Thomas Stranger
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&usart1_tx_pc4 {
+	/*
+	 * enable open-drain drive such that no external push-pull to
+	 * open-drain converter is required. An external pull-up resistor
+	 * with approximately R=5k resistance is suggested.
+	 */
+	drive-open-drain;
+	bias-pull-up;
+};
+
+&arduino_serial {
+	status = "okay";
+
+	w1-zephyr-serial-0 {
+		compatible = "zephyr,w1-serial";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		label = "W1_0";
+		status = "okay";
+
+		dummy-device-1@28 {
+			compatible = "test,w1-dummy-device";
+			reg = <0x28>;
+			label = "DUMMY_DEVICE_1";
+			status = "okay";
+		};
+
+		dummy-device-2@29 {
+			compatible = "test,w1-dummy-device";
+			reg = <0x29>;
+			label = "DUMMY_DEVICE_2";
+			status = "okay";
+		};
+	};
+};
