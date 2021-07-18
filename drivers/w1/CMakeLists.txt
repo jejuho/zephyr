@@ -5,7 +5,7 @@ zephyr_library()
 zephyr_sources_ifdef(CONFIG_USERSPACE                 w1_handlers.c)
 
 # drivers implementing link and access functions (read, write, reset, lock)
-# none implemented yet
+zephyr_library_sources_ifdef(CONFIG_W1_ZEPHYR_SERIAL  w1_zephyr_serial.c)
 
 # network functions:
 zephyr_library_sources(w1_net_intern.c)

@@ -23,4 +23,6 @@ config W1_INIT_PRIORITY
 	help
 	  1-Wire device driver initialization priority.
 
+source "drivers/w1/Kconfig.serial"
+
 endif # W1
