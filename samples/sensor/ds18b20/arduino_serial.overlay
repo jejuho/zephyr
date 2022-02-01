@@ -9,7 +9,7 @@
  * Requires external circuit to provide an open-drain interface.
  */
 
-&arduino_serial {
+&arduino_usart {
 	status = "okay";
 
 	w1_0: w1-zephyr-serial-0 {
@@ -19,12 +19,28 @@
 		label = "W1_0";
 		status = "okay";
 
-		ds18b20@28 {
+		ds18b20-1@28 {
 			compatible = "maxim,ds18b20";
 			reg = <0x28>;
 			resolution = <12>;
-			label = "DS18B20";
+			label = "DS18B20_1";
+			status = "okay";
+		};
+		ds18b20-2@28 {
+			compatible = "maxim,ds18b20";
+			reg = <0x28>;
+			resolution = <12>;
+			label = "DS18B20_2";
+			status = "okay";
+		};
+
+		ds18b20-3@28 {
+			compatible = "maxim,ds18b20";
+			reg = <0x28>;
+			resolution = <12>;
+			label = "DS18B20_3";
 			status = "okay";
 		};
 	};
+
 };
